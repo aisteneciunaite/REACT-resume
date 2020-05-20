@@ -1,8 +1,14 @@
 :root {
   --page-width: 1080px;
-  --theme: #7abcac;
+  --primary: #7abcac;
   --acc1: #d8da79;
   --acc2: #c29486;
+  --light: #dcdcdc;
+}
+
+.grid-3col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .d-block {
@@ -12,23 +18,6 @@
 
 .t-center {
   text-align: center;
-}
-
-.pill {
-  width: fit-content;
-  padding: 0.2em 0.7em;
-  margin: 2em 0;
-  border-radius: 20px;
-  background-color: var(--theme);
-  font-weight: bold;
-}
-
-.pill--acc1 {
-  background-color: var(--acc1);
-}
-
-.pill--acc2 {
-  background-color: var(--acc2);
 }
 
 .unstyled-list {
@@ -42,7 +31,7 @@ body {
 
 .App {
   background-color: white;
-  border: 1px solid #dcdcdc;
+  border: 1px solid var(--light);
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   max-width: var(--page-width);
@@ -60,9 +49,6 @@ body {
   row-gap: 40px;
 }
 
-/* .App > * {
-  border: 1px solid red;
-} */
 .App-header {
   grid-area: header;
   text-align: center;
@@ -97,9 +83,6 @@ body {
 }
 .App-experience {
   grid-area: experience;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  /* column-gap: 20px; */
 }
 
 .App-experience div {
@@ -107,13 +90,8 @@ body {
 }
 
 .App-experience div:nth-of-type(2) {
-  border-left: 2px solid #dcdcdc;
-  border-right: 2px solid #dcdcdc;
-}
-
-.xp-position {
-  grid-column: span 1;
-  grid-row: 2 / span 1;
+  border-left: 2px solid var(--light);
+  border-right: 2px solid var(--light);
 }
 
 .xp-title {
@@ -125,7 +103,7 @@ body {
 }
 
 .underline {
-  border-bottom: 4px solid #dcdcdc;
+  border-bottom: 4px solid var(--light);
 }
 
 .underline--short {
@@ -144,16 +122,6 @@ h2 {
   position: relative;
 }
 
-h2::after {
-  content: '';
-  left: 0;
-  bottom: -7px;
-  position: absolute;
-  width: 72px;
-  height: 10px;
-  background: #7abcac;
-}
-
 .rectangle1 {
   margin: -30px auto 30px auto;
   border: 4px solid #000000;
@@ -162,17 +130,9 @@ h2::after {
   box-sizing: border-box;
 }
 
-.rectangle3 {
-  margin: auto;
-  color: white;
-  background-color: #000000;
-  width: 248px;
-  height: 28px;
-}
-
 .rectangle4 {
   max-width: var(--page-width);
   width: 100%;
   height: 61px;
-  background: #7abcac;
+  background: var(--primary);
 }

@@ -1,0 +1,13 @@
+.JobBlock {
+  grid-column: span 1;
+  grid-row: 2 / span 1;
+}
+
+.JobBlock > span {
+  display: block;
+  text-align: center;
+}
+
+.JobBlock > .Title {
+  text-align: center;
+}

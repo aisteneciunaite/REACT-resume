@@ -1,0 +1,16 @@
+.Pill {
+  width: fit-content;
+  padding: 0.2em 0.7em;
+  margin: 2em 0;
+  border-radius: 20px;
+  background-color: var(--primary);
+  font-weight: bold;
+}
+
+.Pill--acc1 {
+  background-color: var(--acc1);
+}
+
+.Pill--acc2 {
+  background-color: var(--acc2);
+}

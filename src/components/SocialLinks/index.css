@@ -1,0 +1,9 @@
+.SocialLinks {
+  list-style: none;
+  padding: 0;
+}
+
+.SocialLinks li {
+  display: flex;
+  align-items: center;
+}

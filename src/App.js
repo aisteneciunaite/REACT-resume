@@ -1,5 +1,12 @@
 import React from 'react';
 import './App.css';
+import ContentBlock from './components/ContentBlock';
+import Title from './components/Title';
+import TitleRectangle from './components/TitleRectangle';
+import LinksBlock from './components/LinksBlock';
+import PillsList from './components/PillsList';
+import SocialLinks from './components/SocialLinks';
+import JobBlock from './components/JobBlock';
 
 function App() {
   return (
@@ -7,33 +14,22 @@ function App() {
       <div className="App-header">
         <div className="rectangle4"></div>
         <div className="rectangle1">
-          <h1 className="name">SOPHIE ALPERT</h1>
-          <h3 className="rectangle3">PROGRAMMER</h3>
+          <Title level="1">SOPHIE ALPERT</Title>
+          <TitleRectangle title="PROGRAMMER"></TitleRectangle>
         </div>
       </div>
-      <div className="App-links">
-        <h2 className="underline">LINKS</h2>
-        <ul className="unstyled-list">
-          <li>
-            <img className="socIcon" src="./linkedinIcon.png" alt="" />
-            <span>LINKEDIN/username</span>
-          </li>
-          <li>
-            <img className="socIcon" src="./twitterIcon.png" alt="" />
-            <span>TWITTER/@user-handle</span>
-          </li>
-          <li>
-            <img className="socIcon" src="./githubIcon.png" alt="" />
-            <span>GITHUB/username</span>
-          </li>
-          <li>
-            <img className="socIcon" src="./blogIcon.png" alt="" />
-            <span>BLOG/blog-name</span>
-          </li>
-        </ul>
-      </div>
-      <div className="App-about">
-        <h2 className="underline">ABOUT ME</h2>
+      <ContentBlock title="LINKS" className="App-links">
+        {' '}
+        <SocialLinks
+          links={[
+            { text: 'LINKEDIN/username', icon: './linkedinIcon.png', ref: '#' },
+            { text: 'TWITTER', icon: './twitterIcon.png', ref: '#' },
+            { text: 'TWITTER', icon: './githubIcon.png', ref: '#' },
+            { text: 'TWITTER', icon: './blogIcon.png', ref: '#' },
+          ]}
+        ></SocialLinks>
+      </ContentBlock>
+      <ContentBlock title="ABOUT ME" className="App-about">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut justo libero.
           Vestibulum vitae mattis diam. Vivamus eleifend diam vel tempor lacinia. Suspendisse non
@@ -43,9 +39,8 @@ function App() {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut justo libero.
           Vestibulum vitae mattis diam.
         </p>
-      </div>
-      <div className="App-education">
-        <h2 className="underline">EDUCATION</h2>
+      </ContentBlock>
+      <ContentBlock title="EDUCATION" className="App-education">
         <div>
           <h4>SCHOOL NAME</h4>
           <span className="d-block">2009 - 2013</span>
@@ -57,93 +52,88 @@ function App() {
           <span className="d-block">2009 - 2013</span>
           <span className="d-block">Degree</span>
         </div>
-      </div>
-      <div className="App-skills">
-        <h2 className="underline">PERSONAL SKILLS</h2>
-        <ul className="unstyled-list">
-          <li className="pill">TEAMWORK</li>
-          <li className="pill pill--acc1">COMMUNICATION</li>
-          <li className="pill pill--acc2">ORGANIZATION </li>
-        </ul>
-      </div>
-      <div className="App-technical">
-        <h2 className="underline">TECHNICAL SKILLS</h2>
-        <ul className="unstyled-list">
-          <li className="pill">HTML</li>
-          <li className="pill">CSS/SCSS</li>
-          <li className="pill pill--acc1">JAVASCRIPT</li>
-          <li className="pill pill--acc1">REACT.JS</li>
-        </ul>
-      </div>
-      <div className="App-experience">
-        <h2 className="xp-title underline">WORK EXPERIENCE</h2>
-        <div className="xp-position">
-          <h4 className="t-center">JOB POSITION</h4>
-          <span className="d-block t-center">Company</span>
-          <span className="d-block t-center">2018 - present</span>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut justo libero.
-            Vestibulum vitae mattis diam. Vivamus eleifend diam vel tempor lacinia. Suspendisse non
-            augue.
-          </p>
-          <ul>
-            <li>Lorem ipsum dolor</li>
-            <li>Consectetur adipiscing elit</li>
-          </ul>
+      </ContentBlock>
+      <ContentBlock title="PERSONAL SKILLS" className="App-skills">
+        <PillsList
+          items={[
+            { text: 'TEAMWORK' },
+            { text: 'COMMUNICATION', modifier: 'acc1' },
+            { text: 'ORGANIZATION', modifier: 'acc2' },
+          ]}
+        ></PillsList>
+      </ContentBlock>
+      <ContentBlock title="TECHNICAL SKILLS" className="App-technical">
+        <PillsList
+          items={[
+            { text: 'HTML' },
+            { text: 'CSS/SCSS' },
+            { text: 'JAVASCRIPT', modifier: 'acc1' },
+            { text: 'REACT.JS', modifier: 'acc2' },
+          ]}
+        ></PillsList>
+      </ContentBlock>
+      <ContentBlock title="WORK EXPERIENCE" className="App-experience">
+        <div className="grid-3col">
+          <JobBlock job={{ company: 'Company', years: '2018 - present' }}>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut justo libero.
+              Vestibulum vitae mattis diam. Vivamus eleifend diam vel tempor lacinia. Suspendisse
+              non augue.
+            </p>
+            <ul>
+              <li>Lorem ipsum dolor</li>
+              <li>Consectetur adipiscing elit</li>
+            </ul>
+          </JobBlock>
+          <JobBlock job={{ company: 'Company', years: '2018 - present' }}>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut justo libero.
+              Vestibulum vitae mattis diam. Vivamus eleifend diam vel tempor lacinia. Suspendisse
+              non augue.
+            </p>
+            <ul>
+              <li>Lorem ipsum dolor</li>
+              <li>Consectetur adipiscing elit</li>
+            </ul>
+          </JobBlock>
+          <JobBlock job={{ company: 'Company', years: '2018 - present' }}>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut justo libero.
+              Vestibulum vitae mattis diam. Vivamus eleifend diam vel tempor lacinia. Suspendisse
+              non augue.
+            </p>
+            <ul>
+              <li>Lorem ipsum dolor</li>
+              <li>Consectetur adipiscing elit</li>
+            </ul>
+          </JobBlock>
         </div>
-        <div className="xp-position">
-          <h4 className="t-center">JOB POSITION</h4>
-          <span className="d-block t-center">Company</span>
-          <span className="d-block t-center">2018 - present</span>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut justo libero.
-            Vestibulum vitae mattis diam. Vivamus eleifend diam vel tempor lacinia. Suspendisse non
-            augue.
-          </p>
-          <ul>
-            <li>Lorem ipsum dolor</li>
-            <li>Consectetur adipiscing elit</li>
-          </ul>
-        </div>
-        <div className="xp-position">
-          <h4 className="t-center">JOB POSITION</h4>
-          <span className="d-block t-center">Company</span>
-          <span className="d-block t-center">2018 - present</span>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut justo libero.
-            Vestibulum vitae mattis diam. Vivamus eleifend diam vel tempor lacinia. Suspendisse non
-            augue.
-          </p>
-          <ul>
-            <li>Lorem ipsum dolor</li>
-            <li>Consectetur adipiscing elit</li>
-          </ul>
-        </div>
-      </div>
+      </ContentBlock>
+
       <div className="App-contact">
         <div className="underline"></div>
       </div>
-      <div>
-        <div className="rectangle3">
-          <h3 className="t-center">ADDRESS</h3>
-        </div>
-        <span className="d-block t-center">Imaginary St. 52,</span>
-        <span className="d-block t-center">Vilnius, Narnia</span>
-      </div>
-      <div>
-        <div className="rectangle3">
-          <h3 className="t-center">CONTACT</h3>
-        </div>
-        <span className="d-block t-center">+37060000333</span>
-        <span className="d-block t-center">email@test.dev</span>
-      </div>
-      <div>
-        <div className="rectangle3">
-          <h3 className="t-center">SOCIAL</h3>
-        </div>
-        <span className="d-block t-center">Linkedin/username</span>
-        <span className="d-block t-center">Twitter/@user-handle</span>
-      </div>
+      <LinksBlock
+        title="ADDRESS"
+        links={[
+          { text: 'Imaginary St. 52', ref: '#' },
+          { text: 'Vilnius, Narnia', ref: '#' },
+        ]}
+      ></LinksBlock>
+      <LinksBlock
+        title="CONTACT"
+        links={[
+          { text: '+37060000333', ref: 'tel:+37060000333' },
+          { text: 'email@test.dev', ref: 'mailto:email@test.dev' },
+        ]}
+      ></LinksBlock>
+      <LinksBlock
+        title="SOCIAL"
+        links={[
+          { text: 'Linkedin/username', ref: '#' },
+          { text: 'Twitter/@user-handle', ref: '#' },
+        ]}
+      ></LinksBlock>
     </div>
   );
 }
